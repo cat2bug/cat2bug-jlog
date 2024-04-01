@@ -1,0 +1,6 @@
+<configuration>
+    <appender name="cat2bugAppender" class="com.cat2bug.jlog.Cat2BugAppender"/>
+    <root level="INFO">
+        <appender-ref ref="cat2bugAppender" />
+    </root>
+</configuration>
