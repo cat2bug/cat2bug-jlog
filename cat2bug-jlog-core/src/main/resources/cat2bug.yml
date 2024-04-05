@@ -1,0 +1,3 @@
+cat2bug:
+  jlog:
+    version: ${project.version}
