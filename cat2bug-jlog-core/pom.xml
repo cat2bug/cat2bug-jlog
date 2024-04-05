@@ -19,7 +19,6 @@
     <logback.version>1.3.14</logback.version>
     <cat2bug-common.version>0.0.1</cat2bug-common.version>
   </properties>
-
   <!-- 开源签名证书 -->
   <licenses>
     <license>
