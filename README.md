@@ -118,7 +118,7 @@ docker run -it -d -p 8022:8022 --name cat2bug-platform cat2bug/cat2bug-platform:
 
 ![异常日志缺陷](./readme/images/cat2bug-platform-defect.png)
 
-相关测试Demo，请参阅源代码中cat2bug-spring-boot-demo工程。
+相关测试Demo，请参阅源代码中cat2bug-jlog-demo工程。
 
 ## 未来计划
 
