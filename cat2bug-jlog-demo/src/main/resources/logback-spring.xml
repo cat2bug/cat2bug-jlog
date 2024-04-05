@@ -1,6 +1,23 @@
 <configuration>
-    <appender name="cat2bugAppender" class="com.cat2bug.jlog.Cat2BugAppender"/>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="cat2bugAppender" class="com.cat2bug.jlog.Cat2BugJLogAppender">
+        <projectName>Cat2Bug-JLog-Demo</projectName>
+        <projectVersion>0.0.1</projectVersion>
+        <host>http://127.0.0.1:2020/</host>
+        <projectKey>20240328193039fv0gj0ckq5g3nx1h</projectKey>
+        <banner>true</banner>
+        <logCacheSize>100</logCacheSize>
+        <reportPushTime>5000</reportPushTime>
+        <monitorPackages>com.cat2bug.jlog.demo</monitorPackages>
+        <monitorThrowable>java.lang.RuntimeException</monitorThrowable>
+    </appender>
     <root level="INFO">
+        <appender-ref ref="stdout"/>
         <appender-ref ref="cat2bugAppender" />
     </root>
 </configuration>
