@@ -33,6 +33,8 @@ public class PushReportServiceImpl implements IReportService {
 
     private String projectName;
 
+    private String projectVersion;
+
     private String host;
 
     private String projectKey;
@@ -43,8 +45,9 @@ public class PushReportServiceImpl implements IReportService {
 
     private static long pushCount;
 
-    public PushReportServiceImpl(String projectName, String host, String projectKey,String handler,String reportKey){
+    public PushReportServiceImpl(String projectName, String projectVersion, String host, String projectKey,String handler,String reportKey){
         this.projectName = projectName;
+        this.projectVersion = projectVersion;
         this.host = host;
         this.projectKey = projectKey;
         this.handler = handler;
@@ -88,6 +91,7 @@ public class PushReportServiceImpl implements IReportService {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return logInfos.stream().map(l->{
             DefectVo defectVo = new DefectVo();
+            defectVo.setModuleVersion(projectVersion);
             defectVo.setDefectName(DEFECT_TITLE_HEADER+l.getLoggingEvent().getLoggerName());
 
             StringBuffer describe = new StringBuffer();

@@ -39,6 +39,10 @@ public class Cat2BugJLogAppender extends AppenderBase<ILoggingEvent> implements 
      */
     private String projectName;
     /**
+     * 项目版本
+     */
+    private String projectVersion;
+    /**
      * 提交到远程的主机地址
      */
     private String host;
@@ -111,7 +115,7 @@ public class Cat2BugJLogAppender extends AppenderBase<ILoggingEvent> implements 
         } else {
             reportServiceList = new ArrayList<>();
         }
-        reportServiceList.add(new PushReportServiceImpl(this.projectName,this.host,this.projectKey,this.handler,REPORT_KEY));
+        reportServiceList.add(new PushReportServiceImpl(this.projectName,this.projectVersion,this.host,this.projectKey,this.handler,REPORT_KEY));
     }
 
     @Override
@@ -269,5 +273,11 @@ public class Cat2BugJLogAppender extends AppenderBase<ILoggingEvent> implements 
         this.reportPushTime = reportPushTime;
     }
 
+    public String getProjectVersion() {
+        return projectVersion;
+    }
 
+    public void setProjectVersion(String projectVersion) {
+        this.projectVersion = projectVersion;
+    }
 }
