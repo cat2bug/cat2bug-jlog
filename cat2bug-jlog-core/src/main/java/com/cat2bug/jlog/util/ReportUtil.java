@@ -8,7 +8,7 @@ import java.util.UUID;
 public class ReportUtil {
     /**
      * 创建报告KEY
-     * @return
+     * @return KEY值
      */
     public static String createReportKey() {
         return UUID.randomUUID().toString();

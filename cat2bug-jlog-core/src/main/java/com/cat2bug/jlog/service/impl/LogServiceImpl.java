@@ -111,6 +111,7 @@ public class LogServiceImpl implements ILogService {
 
     /**
      * 获取日志唯一标识符
+     * @param log 日志
      * @return 唯一标识符
      */
     private String getKey(ILoggingEvent log) {

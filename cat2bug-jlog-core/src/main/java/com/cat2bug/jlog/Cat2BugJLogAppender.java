@@ -22,9 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @Author: yuzhantao
- * @CreateTime: 2024-04-01 22:13
- * @Version: 1.0.0
+ * Cat2Bug日志采集服务
  */
 public class Cat2BugJLogAppender extends AppenderBase<ILoggingEvent> implements ILogListener {
     private static final Logger log = LoggerFactory.getLogger(Cat2BugJLogAppender.class);
@@ -132,15 +130,11 @@ public class Cat2BugJLogAppender extends AppenderBase<ILoggingEvent> implements 
     @Override
     protected void append(ILoggingEvent loggingEvent) {
         if((StringUtil.isBlank(monitorPackages) ||
-                Arrays.stream(monitorPackages.split(",")).anyMatch(p-> Arrays.stream(loggingEvent.getThrowableProxy().getStackTraceElementProxyArray()).anyMatch(l->
-                        {
-                            System.out.println("--------"+l.getStackTraceElement().getClassName());
-                            return l.getStackTraceElement().getClassName().indexOf(p)==0;}
-                ))) &&
+                Arrays.stream(monitorPackages.split(",")).anyMatch(p-> Arrays.stream(loggingEvent.getThrowableProxy().getStackTraceElementProxyArray()).anyMatch(l->l.getStackTraceElement().getClassName().indexOf(p)==0))) &&
            (StringUtil.isBlank(monitorThrowable) ||
                    Arrays.stream(monitorThrowable.split(",")).anyMatch(t-> loggingEvent.getThrowableProxy()!=null && loggingEvent.getThrowableProxy().getClassName().equals(t))==false) &&
             (StringUtil.isBlank(ignorePackages) ||
-                    Arrays.stream(ignorePackages.split(",")).anyMatch(p->Arrays.stream(loggingEvent.getCallerData()).anyMatch(p1->p.indexOf(p1.getClassName())==0))==false) &&
+                    Arrays.stream(ignorePackages.split(",")).anyMatch(p->Arrays.stream(loggingEvent.getThrowableProxy().getStackTraceElementProxyArray()).anyMatch(l->l.getStackTraceElement().getClassName().indexOf(p)==0))) &&
             (StringUtil.isBlank(ignoreThrowable) ||
                     Arrays.stream(ignoreThrowable.split(",")).anyMatch(t-> loggingEvent.getThrowableProxy()!=null && loggingEvent.getThrowableProxy().getClassName().equals(t))==false)
             )
@@ -178,7 +172,7 @@ public class Cat2BugJLogAppender extends AppenderBase<ILoggingEvent> implements 
 
     /**
      * 获取应用版本
-     * @return
+     * @return 应用版本
      */
     private String getAppVersion() {
         String version = AppUtil.getValue("cat2bug.jlog.version");

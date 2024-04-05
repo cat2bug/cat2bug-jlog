@@ -1,0 +1,20 @@
+<assembly>
+<id>zip-with-dir</id>
+<formats>
+    <format>zip</format>
+</formats>
+<fileSets>
+    <fileSet>
+        <directory>${project.build.directory}</directory>
+        <includes>
+            <include>*.jar</include>
+            <include>*.pom</include>
+            <!-- 包含要生成的 MD5、SHA1 校验和文件和 ASC 签名文件 -->
+            <include>*.md5</include>
+            <include>*.sha1</include>
+            <include>*.asc</include>
+        </includes>
+        <outputDirectory>/cat2bug/cat2bug-jlog-core/${project.version}</outputDirectory>
+    </fileSet>
+</fileSets>
+</assembly>

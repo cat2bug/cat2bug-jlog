@@ -9,13 +9,16 @@ import java.io.IOException;
 import java.text.ParseException;
 
 /**
- * @Author: yuzhantao
- * @CreateTime: 2024-04-02 17:44
- * @Version: 1.0.0
+ * 异常示例类
  */
 @Service
 public class ExceptionService {
     private static final Logger log = LoggerFactory.getLogger(ExceptionService.class);
+
+    /**
+     * 定时抛异常
+     * @throws Exception
+     */
     @Scheduled(cron = "0/1 * * * * *")
     public void testException() throws Exception {
         if(Math.random()>0.6) {

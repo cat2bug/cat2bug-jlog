@@ -93,7 +93,6 @@ public class PushReportServiceImpl implements IReportService {
             DefectVo defectVo = new DefectVo();
             defectVo.setModuleVersion(projectVersion);
             defectVo.setDefectName(DEFECT_TITLE_HEADER+l.getLoggingEvent().getLoggerName());
-
             StringBuffer describe = new StringBuffer();
             describe.append(getEnvironmentInfo("Log Time",sdf.format(new Date(l.getUpdateTime())))+"\n");
 //            describe.append("* Class:"+l.getLoggingEvent().getMessage()+"\n");
@@ -126,6 +125,8 @@ public class PushReportServiceImpl implements IReportService {
 
     /**
      * 获取环境信息
+     * @param timeTitleName 时间标题名
+     * @param timeValue 时间
      * @return 环境信息
      */
     private String getEnvironmentInfo(String timeTitleName, String timeValue) {
@@ -149,6 +150,7 @@ public class PushReportServiceImpl implements IReportService {
 
     /**
      * 获取数据详情
+     * @param logInfos 日志集合
      * @return 数据详情
      */
     private String getDataDetails(Set<LogInfo> logInfos) {
