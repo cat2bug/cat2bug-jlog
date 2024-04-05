@@ -1,7 +1,7 @@
 # Cat2Bug-JLog
 
 ## 介绍
-[Cat2Bug-JLog](https://gitee.com/cat2bug/cat2bug-jlog) 是[Cat2Bug](https://www.cat2bug.com) 推出的Java 错误日志收集框架，通过简单的配置，可以将系统运行中的错误日志已报告的形式提交到BUG系统，提高项目管理运维的效率。
+[Cat2Bug-JLog](https://gitee.com/cat2bug/cat2bug-jlog) 是[Cat2Bug](https://www.cat2bug.com) 推出的Java 错误日志收集框架，通过简单的配置，可以将系统运行中的错误日志提交到BUG系统，提高项目管理运维的效率。
 
 ## 连接
 * 官网: https://www.cat2bug.com
