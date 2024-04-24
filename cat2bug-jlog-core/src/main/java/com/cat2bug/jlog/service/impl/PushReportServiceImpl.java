@@ -76,6 +76,9 @@ public class PushReportServiceImpl implements IReportService {
         report.setReportDescription(description);
         List<DefectVo> defectVoList = getDefectList(logInfos);
         report.setReportData(defectVoList);
+        if(StringUtil.isNotBlank(handler)) {
+            report.setHandler(handler);
+        }
         try {
             Response response = ReportService.pushDefect(this.host, this.projectKey, report);
             if(response.code()!= 200)
@@ -108,9 +111,6 @@ public class PushReportServiceImpl implements IReportService {
             defectVo.setDefectType(DefectType.BUG);
             defectVo.setDefectGroupKey(getGroupKey(l));
             defectVo.setDefectKey(getKey(l));
-            if(StringUtil.isNotBlank(handler)) {
-                defectVo.setHandleByList(Arrays.asList(handler));
-            }
             return defectVo;
         }).collect(Collectors.toList());
     }

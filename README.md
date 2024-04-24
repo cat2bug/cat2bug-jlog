@@ -27,7 +27,7 @@ Cat2Bug-JLog以Logback为基础,实时监控指定类的异常日志，并将异
 
 *  Gradle
 ```javascript
-testImplementation ("com.cat2bug:cat2bug-jlog-core:0.0.1")
+testImplementation ("com.cat2bug:cat2bug-jlog-core:0.0.2")
 ```
 
 * Maven
@@ -36,8 +36,7 @@ testImplementation ("com.cat2bug:cat2bug-jlog-core:0.0.1")
 <dependency>
     <groupId>com.cat2bug</groupId>
     <artifactId>cat2bug-jlog-core</artifactId>
-    <version>0.0.1</version>
-    <scope>test</scope>
+    <version>0.0.2</version>
 </dependency>
 ```
 
